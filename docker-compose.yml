@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    enviroment:
+      POSTGRES_DB: 'persons'
+      POSTGRES_USER: 'Ali Dalla'
+      POSTGRES_PASSWORD: '775472ali'
+    ports: 
+      - "5432:5432"
+web:
+  build: .
+  ports: 
+    - "8000:8000"
+  depends_on: 
+    - db
